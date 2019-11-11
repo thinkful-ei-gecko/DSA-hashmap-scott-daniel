@@ -40,10 +40,12 @@ const main = () => {
   lotr.set('Ent', 'Treebear');
 
   // console.log(lotr)
-  // console.log(lotr.get('Maiar'));
   // console.log(lotr.get('Hobbit'));
 
   WhatDoesThisDo();
+  let string = 'abcdef';
+  string[0] = 'b';
+  console.log(string);
 }
 
 main();
@@ -58,4 +60,24 @@ main();
   3.2 Hash table would be blank, 28, 12, 5, 33, 15, blank, 17
                                  19
                                  10
+*/
+
+/*
+  init placeholder at undefined
+
+  if (currVal.get return odd)
+    and if placeholder === undefined
+    placeholder equal the currVal - whatever the letter is
+
+    else if (placeholder !== currVal)
+      return false
+
+
+   map(key => {
+     return key: [];
+   })
+   forEach(word => {
+     helper(word)
+     
+   }
 */
