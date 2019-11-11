@@ -1,5 +1,4 @@
-const Node = require('./node');
-const listHelpers = require('./linkedListHelpers');
+const Node = require('./LinkedNode');
 
 class LinkedList {
   constructor() {
@@ -120,3 +119,5 @@ class LinkedList {
     prevNode.next = currNode.next;
   }
 }
+
+module.exports = LinkedList;

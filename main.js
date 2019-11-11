@@ -1,4 +1,5 @@
 const HashMap = require('./Hashmap');
+const SepChain = require('./sepChainHashmap');
 
 const WhatDoesThisDo = function() {
   // sets str1 and str2 to the same thing
@@ -25,28 +26,28 @@ const WhatDoesThisDo = function() {
 };
 
 const main = () => {
-  let lotr = new HashMap();
+  let lotr = new SepChain();
   lotr.set('Hobbit', 'Bilbo');
   lotr.set('Hobbit', 'Frodo');
-  lotr.set('Wizard', 'Gandalf');
-  lotr.set('Human', 'Aragon');
-  lotr.set('Elf', 'Legolas');
-  lotr.set('Maiar', 'The Necromancer');
-  lotr.set('Maiar', 'Sauron');
-  lotr.set('RingBearer', 'Gollum');
-  lotr.set('LadyOfLight', 'Galadriel');
-  lotr.set('HalfElven', 'Arwen');
-  lotr.set('Ent', 'Treebear');
+  // lotr.set('Wizard', 'Gandalf');
+  // lotr.set('Human', 'Aragon');
+  // lotr.set('Elf', 'Legolas');
+  // lotr.set('Maiar', 'The Necromancer');
+  // lotr.set('Maiar', 'Sauron');
+  // lotr.set('RingBearer', 'Gollum');
+  // lotr.set('LadyOfLight', 'Galadriel');
+  // lotr.set('HalfElven', 'Arwen');
+  // lotr.set('Ent', 'Treebear');
 
-  // console.log(lotr)
-  // console.log(lotr.get('Hobbit'));
+  console.log(lotr)
+  console.log(lotr.get('Hobbit'));
 
-  const words = ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race'];
+  // const words = ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race'];
 
-  WhatDoesThisDo();
-  duplicate('google all that you know');
-  console.log(palindrome('acerdar'));
-  console.log(anagrams(words));
+  // WhatDoesThisDo();
+  // duplicate('google all that you know');
+  // console.log(palindrome('acerdar'));
+  // console.log(anagrams(words));
 };
 
 main();

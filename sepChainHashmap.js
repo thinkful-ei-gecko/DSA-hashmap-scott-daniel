@@ -1,3 +1,5 @@
+const LinkedList = require('./LinkedList');
+
 class HashMap {
   constructor(initialCapacity = 8) {
     this.length = 0;
@@ -19,15 +21,24 @@ class HashMap {
     if (loadRatio > HashMap.MAX_LOAD_RATIO) {
       this.resize(this.capacity * HashMap.SIZE_RATIO);
     }
-    const index = this.findSlot(key);
+    const spot = this.findSlot(key);
+    const index = spot.index
     if (!this.hashTable[index]) {
       this.length++;
     }
-    this.hashTable[index] = {
-      key,
-      value,
-      deleted: false
-    };
+    if (spot.isLL) {
+      this.hashTable[index].insertLast({
+        key,
+        value,
+        deleted: false
+      })
+    } else {
+      this.hashTable[index] = {
+        key,
+        value,
+        deleted: false
+      };
+   }
   }
 
   delete(key) {
@@ -43,15 +54,26 @@ class HashMap {
 
   findSlot(key) {
     const hash = HashMap.hashString(key);
-    const start = hash % this.capacity;
+    const index = hash % this.capacity;
+    const slot = this.hashTable[index];
 
-    for (let i = start; i < start + this.capacity; i++) {
-      const index = i % this.capacity;
-      const slot = this.hashTable[index];
-      if (slot === undefined || (slot.key === key && !slot.deleted)) {
-        return index;
-      }
+    const indexObj = {
+      index: index,
+      isLL: false,
     }
+
+
+
+    if (slot !== undefined && slot.head === undefined) {
+      let linkedList = new LinkedList();
+      linkedList.insertFirst(slot);
+      this.hashTable[index] = linkedList;
+      indexObj.isLL = true;
+    } else if (slot !== undefined && slot.head !== undefined) {
+      indexObj.isLL = true;
+    }
+
+    return indexObj
   }
 
   resize(size) {
