@@ -29,18 +29,18 @@ const main = () => {
   let lotr = new SepChain();
   lotr.set('Hobbit', 'Bilbo');
   lotr.set('Hobbit', 'Frodo');
-  // lotr.set('Wizard', 'Gandalf');
-  // lotr.set('Human', 'Aragon');
-  // lotr.set('Elf', 'Legolas');
-  // lotr.set('Maiar', 'The Necromancer');
-  // lotr.set('Maiar', 'Sauron');
-  // lotr.set('RingBearer', 'Gollum');
-  // lotr.set('LadyOfLight', 'Galadriel');
-  // lotr.set('HalfElven', 'Arwen');
-  // lotr.set('Ent', 'Treebear');
+  lotr.set('Wizard', 'Gandalf');
+  lotr.set('Human', 'Aragon');
+  lotr.set('Elf', 'Legolas');
+  lotr.set('Maiar', 'The Necromancer');
+  lotr.set('Maiar', 'Sauron');
+  lotr.set('RingBearer', 'Gollum');
+  lotr.set('LadyOfLight', 'Galadriel');
+  lotr.set('HalfElven', 'Arwen');
+  lotr.set('Ent', 'Treebear');
 
   console.log(lotr)
-  console.log(lotr.get('Hobbit'));
+  console.log(lotr.get('Human'));
 
   // const words = ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race'];
 
