@@ -28,7 +28,10 @@ class HashMap {
       this.resize(this.capacity * HashMap.SIZE_RATIO);
     }
     const index = this.findSlot(key);
-    if (!this.hashTable[index] || this.hashTable[index].next === null) {
+    let spot = this.hashTable[index];
+
+
+    if (!spot) {
       this.length++;
       this.hashTable[index] = {
         key,
@@ -38,25 +41,10 @@ class HashMap {
       };
       return;
     }
-    if (this.hashTable[index].next) {
-      console.log(this.hashTable[index].value)
-      this.hashTable[index].next.value = val;
+    while (spot.next) {
+      spot = spot.next;
     }
-
-    //   if (spot.overwrite) {
-    //     this.hashTable[index] = {
-    //       key,
-    //       value,
-    //       deleted: false
-    //     })
-    // else {
-    //   this.hashTable[index] = {
-    //     key,
-    //     value,
-    //     next: null,
-    //     deleted: false,
-    //   };
-    // }
+    spot.value = val;
   }
 
   delete(key) {
@@ -73,12 +61,7 @@ class HashMap {
   findSlot(key) {
     const hash = HashMap.hashString(key);
     const index = hash % this.capacity;
-    const slot = this.hashTable[index];
-
-    // const indexObj = {
-    //   index: index,
-    //   // overwrite: false,
-    // }
+    let slot = this.hashTable[index];
 
     if (!slot) {
       return index;
@@ -87,23 +70,16 @@ class HashMap {
     if (key === slot.key) {
       return index;
     }
+    while (slot.next !== null) {
+      slot = slot.next;
+    }
     slot.next = {
       key: key,
       value: null,
+      next: null,
+      deleted: false,
     }
     return index;
-
-
-    // if (slot !== undefined && slot.head === undefined) {
-    //   let linkedList = new LinkedList();
-    //   linkedList.insertFirst(slot);
-    //   this.hashTable[index] = linkedList;
-    //   indexObj.isLL = true;
-    // } else if (slot !== undefined && slot.head !== undefined) {
-    //   indexObj.isLL = true;
-    // }
-
-    // return indexObj
   }
 
   resize(size) {

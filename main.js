@@ -30,17 +30,29 @@ const main = () => {
   lotr.set('Hobbit', 'Bilbo');
   lotr.set('Hobbit', 'Frodo');
   lotr.set('Wizard', 'Gandalf');
-  lotr.set('Human', 'Aragon');
+
   lotr.set('Elf', 'Legolas');
   lotr.set('Maiar', 'The Necromancer');
   lotr.set('Maiar', 'Sauron');
   lotr.set('RingBearer', 'Gollum');
   lotr.set('LadyOfLight', 'Galadriel');
   lotr.set('HalfElven', 'Arwen');
-  lotr.set('Ent', 'Treebear');
+  lotr.set('Ent', 'Treebeard');
+
+  // lotr.set('Hobbit', 'a');
+  // lotr.set('Hobbit', 'b');
+  // lotr.set('Wizard1', 'Gandalf');
+  // lotr.set('Human2', 'Aragon');
+  // lotr.set('Elf3', 'Legolas');
+  // lotr.set('Maiar4', 'The Necromancer');
+  // lotr.set('Maiar3', 'Sauron');
+  // lotr.set('RingBearer2', 'Gollum');
+  // lotr.set('LadyOfLight1', 'Galadriel');
+  // lotr.set('HalfElven2', 'Arwen');
+  // lotr.set('En3t', 'Treebeard');
 
   console.log(lotr)
-  console.log(lotr.get('Human'));
+  console.log(JSON.stringify(lotr));
 
   // const words = ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race'];
 
